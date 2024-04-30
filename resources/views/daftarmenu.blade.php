@@ -4,27 +4,33 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">list menu</h1>
 </div>
-<div class="row">
-    <div class="col-sm-6 mb-3 mb-sm-0">
-      <div class="card">
-        <div class="card-body">
-            <img src="https://source.unsplash.com/1000x500?food" alt="guest" class="img-fluid">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn">Go somewhere</a>
-        </div>
-      </div>
+{{-- <div class="row justify-content-center mb-3">
+<div class="col-md-6">
+  <form action="/post">
+    @if (request('category'))
+      <input type="hidden" name="category" value="{{ request('category')}}">
+    @endif
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Search.." name="search" value="{{ Request('search') }}">
+    <button class="btn" type="submit">submit</button>
     </div>
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-            <img src="https://source.unsplash.com/1000x500?food" alt="guest" class="img-fluid">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn">Go somewhere</a>
-        </div>
+  </form> 
+</div>
+</div> --}}
+<div class="row">
+  @foreach ($drinks as $item)
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+          <img src="https://source.unsplash.com/1000x500?food" alt="guest" class="img-fluid">
+          <h5 class="card-title ">{{ $item->name }}</h5>
+          <h5 class="card-title ">Rp{{ $item->price }}</h5>
+          <p class="card-text">{{ $item->description }}</p>
+            <p>{{ $item->created_at->diffForHumans() }}</p>          
+          <a href="{{ route('daftarmenu.show', $item->id) }}" class="btn">Details</a>
       </div>
     </div>
   </div>
+  @endforeach
 
 @endsection

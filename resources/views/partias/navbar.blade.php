@@ -16,7 +16,7 @@
           <a class="nav-link" href="/popular"><i class="bi bi-hand-thumbs-up"> Menu Populer</i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="review"><i class="bi bi-star"> Rewiew</i></a>
+          <a class="nav-link" href="/category"><i class="bi bi-star"> category</i></a>
         </li>      
       </ul>      
 

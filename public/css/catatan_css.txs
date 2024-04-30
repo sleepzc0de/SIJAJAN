@@ -1,0 +1,9 @@
+drink::create((
+    'nama' => 'kopi',
+    'category_id'=> '1',
+    'slug'=> 'kapal-api',
+    'description' = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis harum quo assumenda odit ab facere, cupiditate quasi voluptates aut tempore quas maxime, blanditiis ad laborum! Assumenda fuga maiores quis alias, 
+ratione inventore! Rerum quasi molestiae atque perspiciatis ipsum iste alias corporis iure eos, dolorem dolores est temporibus tempore veniam minima, excepturi velit numquam vero voluptate nesciunt corrupti? Libero porro veniam 
+expedita aliquid sit ex non amet ducimus culpa quidem perferendis, sed officia magni laboriosam debitis cupiditate quas minus impedit itaque ipsa iure sunt dolore architecto. Voluptas explicabo architecto accusamus, corporis provident, 
+sequi nihil saepe a sed dignissimos soluta minus odit.'
+))

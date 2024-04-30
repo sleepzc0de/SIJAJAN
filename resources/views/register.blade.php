@@ -47,28 +47,7 @@
                     </div> 
                     @enderror    
             </div>
-                <!-- <h4>Pilih Jenis Kelamin</h4>
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                laki-laki
-                </label>
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                <label class="form-check-label" for="flexRadioDefault2">
-                Perempuan
-            </label>  
-            <div>
-                <h4>Mendaftar sebagai</h4>
-                <select class="form-select" aria-label="Default select example" >
-                    <option value="1">Gojek</option>
-                    <option value="2">Gofood</option>
-                    <option value="3">Gosend</option>
-                </select>   
-            </div>   
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div> -->
-            <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Register</button>
+            <button class="w-100 btn btn-lg mt-3" type="submit">Register</button>
             </form>
             <small class="d-block text-center mt-3">Already Register? <a href="/login" class="text-decoration-none">Login</a></small>    
         </main>
