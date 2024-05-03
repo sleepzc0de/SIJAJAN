@@ -7,7 +7,10 @@
         <a href="home">home</a>
         <a href="gallery">gallery</a>
         <a href="order">order</a>
-        <a href="mail">contact us</a>
         <a href="login">login</a>
+        <a class="nav-link" href="{{ route('shopping.cart') }}">
+            <i class="fas fa-shopping-cart"></i><span
+                class="badge bg-danger">{{ count((array) session('cart')) }}</span>
+        </a>
     </nav>
 </header>

@@ -384,64 +384,52 @@ header .navbar a:hover{
     padding:1rem 0;
 }
 
-.order{
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     padding-top: 100px;
 }
 
-.order .row{
-    padding:2rem;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
-    background: #fff;
-    display: flex;
-    flex-wrap: wrap;
-    gap:1.5rem;
+
+.box {
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.order .row .image{
-    flex:1 1 30rem;
+
+.box img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
 
-.order .row .image img{
-    height: 100%;
-    width:100%;
-    object-fit: cover;
-    border-radius: .5rem;
+.box h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
 }
 
-.order .row form{
-    flex:1 1 50rem;
-    padding:1rem;
+.box p {
+    margin-bottom: 10px;
 }
 
-.order .row form .inputBox{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.box .btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: rgba(0, 0, 0, 0.986);
+    color: #fff;
+    text-decoration: black  ;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
-.order .row form .inputBox input, .order .row form textarea{
-    padding:1rem;
-    margin:1rem 0;
-    font-size: 1.7rem;
-    color: #333;
-    text-transform: none;
-    border:.1rem solid rgba(0,0,0,.3);
-    border-radius: .5rem;
-    width:49%;
-}
-
-.order .row form textarea{
-    width:100%;
-    resize: none;
-    height:15rem;
-}
-
-.order .row form .btn{
-    background:none;
-}
-
-.order .row form .btn:hover{
-    background:var(--red);
+.box .btn:hover {
+    background-color: #0056b3;
 }
 
 .footer{
@@ -501,8 +489,47 @@ header .navbar a:hover{
 }
 
 
+#cart {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#cart th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 8px;
+    padding-top: 100px;
+}
 
 
+#cart td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+
+#cart tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#cart tbody tr:hover {
+    background-color: #ddd;
+}
+
+
+#cart .btn {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#cart .btn:hover {
+    background-color: #0056b3;
+}
 
 
 
@@ -555,6 +582,7 @@ header .navbar a:hover{
         border-left:.5rem solid var(--red);
         background: #fff;
     }
+
 
 }
 

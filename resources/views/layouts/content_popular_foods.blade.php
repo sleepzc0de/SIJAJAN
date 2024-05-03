@@ -15,7 +15,7 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
             </div>
-            <a href="#" class="btn">order now</a>
+            <a href="order" class="btn">order now</a>
         </div>
         <div class="box">
             <span class="price"> Rp60.000 - Rp500.000 </span>
@@ -28,7 +28,7 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
             </div>
-            <a href="#" class="btn">order now</a>
+            <a href="order" class="btn">order now</a>
         </div>
         <div class="box">
             <span class="price"> Rp40.000 - Rp200.000 </span>

@@ -2,30 +2,68 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
-    function login()
+
+    function register() 
+    {
+        return view('register');
+    }
+
+    function registersave(Request $request)
+    {
+        Validator::make($request->all(),[
+            'name'=> 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed'
+        ])->validate();
+
+        User::create([
+            'name' =>$request->name,
+            'email' =>$request->email,
+            'password' =>Hash::make($request->password),
+            'level' => 'admin'
+        ]); 
+
+        return redirect()->route('login');
+    
+    }
+
+
+    public function login()
     {
         return view('login');
     }
-    function autentication(Request $request)
+
+    public function loginAction(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
+        Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required'
+        ])->validate();
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+        $credentials = $request->only('email', 'password');
 
-            return redirect()->intended('/home');
+        if (!Auth::attempt($credentials, $request->boolean('remember'))) {
+            throw ValidationException::withMessages([
+                'email' => trans('auth.failed')
+            ]);
         }
-        
-        Session()->flash('status', 'failed');
-        Session()->flash('message', 'login error');
-        return redirect('/login');
-    }
+    
+        $user = Auth::user();
+
+        if ($user->level === 'admin') {
+            return redirect()->route('products');
+        } else {
+            return redirect()->route('home');
+        }
+}
+
 }
