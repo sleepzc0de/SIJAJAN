@@ -1,13 +1,13 @@
 @extends('layouts.main')
 
 @section('container')
-<div class="container">
-    <div class="row justify-conent-center mb-3 ">
-        <h2 class="mb-4">{{ $drinks->name }}</h2>
-        <div class="col-md-9">
-            <p>hallo</p>
-        </div>
-    </div>
+<div class="card">
+  <div class="card-body">
+      <h5 class="card-title">{{ $drink->name }}</h5>
+      <h5 class="card-title">Rp{{ $drink->price }}</h5>
+      <p class="card-text">Category: {{ $drink->category->name }}</p>
+      <p>{{ $drink->created_at->diffForHumans() }}</p>
+  </div>
 </div>
     
 @endsection

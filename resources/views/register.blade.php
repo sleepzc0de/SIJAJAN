@@ -5,7 +5,7 @@
         <main class="form-registration">
             <h3>Registrasi your account</h3> 
             <h1 class="h3 mb-3 fw-normal">Please complete data</h1>
-            <form action="/daftar" method="post">
+            <form action="/register" method="post">
                 @csrf
                 <div class="form-floating">
                     <input type="text" name="name" class="form-control rounded-top @error('name')
@@ -17,7 +17,7 @@
                     </div> 
                     @enderror
                 </div>
-            <div class="form-floating">
+            {{-- <div class="form-floating">
                 <input type="text" name="username" class="form-control @error('username')
                     is-invalid @enderror" id="username" placeholder="username" required value="{{old('username')}}">
                 <label for="floatingInput">User Name</label>  
@@ -26,7 +26,7 @@
                     {{ $message }}
                     </div> 
                     @enderror
-            </div>  
+            </div>   --}}
             <div class="form-floating">
                 <input type="email" name="email" class="form-control @error('email')
                     is-invalid @enderror" id="email" placeholder="name@eample.com" required value="{{old('email')}}">

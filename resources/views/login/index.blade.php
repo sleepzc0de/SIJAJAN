@@ -3,16 +3,16 @@
 <div class="row justify-content-center">
   <div class="col-md-4 mb-3">
 
-    @if(session()->has('succes'))
+    @if(session()->has('success'))
     <div class="alert alert-succes alert-dismissible fade show" role="alert">
-      {{ session('succes') }}
+      {{ session('success') }}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
       </button>
     </div>
     @endif
 
     @if(session()->has('LoginError'))
-    <div class="alert alert-succes alert-dismissible fade show" role="alert">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
       {{ session('LoginError') }}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
       </button>
@@ -37,7 +37,7 @@
           <input type="password" name="password" class="form-control" id="password" placeholder="Password">
           <label for="password">Password</label required>
         </div>
-        <p>Belum punya Akun?<a href="/regis" class="text-decoration-none"> Registrasi</p></a>
+        <p>Belum punya Akun?<a href="/register" class="text-decoration-none"> Registrasi</p></a>
         <button class="btn w-100 py-2" type="submit">Login</button>
       </form>
     </main>
