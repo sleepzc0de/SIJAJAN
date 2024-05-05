@@ -14,6 +14,7 @@
             <tr>
                 <th>Product</th>
                 <th>JenisFood</th>
+                <th>harga</th>
                 <th>ActionMenu</th>
             </tr>
         </thead>
@@ -33,6 +34,7 @@
                             </div>
                         </td>
                         <td data-th="JenisFood">{{ $details['makanan'] }}</td>
+                        <td data-th="harga">{{ $details['harga'] }}</td>
                         <td class="actions" style="font-family: Comic Sans MS, cursive;">
                             <a class="btn btn-outline-danger btn-sm delete-product"><i class="fa fa-trash-o"></i></a>
                         </td>
