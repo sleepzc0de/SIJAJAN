@@ -5,9 +5,11 @@
 
     <nav class="navbar">
         <a href="home">home</a>
-        <a href="gallery">gallery</a>
+        <a href="galleries">gallery</a>
         <a href="order">order</a>
         <a href="login">login</a>
+        <a href="login">logout
+        </a>
         <a class="nav-link" href="{{ route('shopping.cart') }}">
             <i class="fas fa-shopping-cart"></i><span
                 class="badge bg-danger">{{ count((array) session('cart')) }}</span>

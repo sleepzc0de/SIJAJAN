@@ -34,7 +34,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-shopping-basket"></i>
                 </div>
@@ -130,7 +130,8 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{{ route('login') }}" data-toggle="modal"
+                                    data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -141,66 +142,9 @@
 
                 </nav>
                 <!-- End of Topbar -->
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Product Nusantara</h1>
-
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <a href="{{ route('products.create') }}" class="btn btn-primary btn-sm"><i
-                                    class="fa fa-plus"></i> Add </a>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Name</th>
-                                            <th>Makanan</th>
-                                            <th>Harga</th>
-                                            <th>Image</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php $no = 1; ?>
-                                        @foreach ($products as $item)
-                                            <tr>
-                                                <th>{{ $no++ }}</th>
-                                                <th>{{ $item->name }}</th>
-                                                <th>{{ $item->makanan }}</th>
-                                                <th>{{ $item->harga }}</th>
-
-                                                <td>
-                                                    <img src="{{ asset('images/' . $item->images) }}" width= '100'
-                                                        height='100' class="img img-responsive" />
-                                                </td>
-                                                <td>
-                                                    <a href="{{ route('products.edit', $item->id) }}"
-                                                        class="btn btn-warning btn-sm"><i class="fas fa-edit"></i>
-                                                        Edit
-                                                    </a>
-                                                    <form action="{{ route('products.destroy', $item->id) }}"
-                                                        method="POST" type="button" class="btn btn-danger p-0"
-                                                        onsubmit="return confirm('Delete?')">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button class="btn btn-danger m-0">Delete</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
+                    @yield('content')
                 </div>
                 <!-- /.container-fluid -->
 
@@ -211,12 +155,11 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>The Amazing &copy; Developer Web 2030</span>
+                        <span>Copyright &copy; Your Website 2021</span>
                     </div>
                 </div>
             </footer>
             <!-- End of Footer -->
-
         </div>
         <!-- End of Content Wrapper -->
 
@@ -242,7 +185,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="{{ route('login') }}">Logout</a>
                 </div>
             </div>
         </div>

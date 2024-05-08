@@ -76,6 +76,7 @@
                                         @enderror
 
                                     </div>
+
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">Register
                                     Account</button>
@@ -93,6 +94,15 @@
             </div>
         </div>
     </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const success = urlParams.get('success');
+            if (success === 'true') {
+                alert('Registration successful! Please proceed to login.');
+            }
+        });
+    </script>
     <!-- JavaScript-->
 
     <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
@@ -102,6 +112,9 @@
     <script src="{{ asset('admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
     <script src="{{ asset('admin/js/sb-admin-2.min.js') }}"></script>
+
+
+
 </body>
 
 </html>

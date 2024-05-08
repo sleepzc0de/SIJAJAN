@@ -32,7 +32,7 @@ class AuthController extends Controller
             'level' => 'admin'
         ]); 
 
-        return redirect()->route('login');
+        return redirect()->route('login')->with('success', 'Registrasi berhasil!');
     
     }
 
@@ -60,10 +60,15 @@ class AuthController extends Controller
         $user = Auth::user();
 
         if ($user->level === 'admin') {
-            return redirect()->route('products');
+            return redirect()->route('dashboard');
         } else {
             return redirect()->route('home');
         }
 }
+
+    function profil()
+    {
+    return view('profil');
+    }
 
 }

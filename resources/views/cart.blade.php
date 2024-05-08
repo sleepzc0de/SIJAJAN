@@ -25,7 +25,7 @@
                     <tr rowId="{{ $id }}">
                         <td data-th="Product">
                             <div class="row">
-                                <div class="col-sm-3 hidden-xs"><img src="{{ asset('images') }}/{{ $details['images'] }}"
+                                <div class="col-sm-3 hidden-xs"><img src="{{ asset('image') }}/{{ $details['images'] }}"
                                         class="card-img-top">
                                 </div>
                                 <div class="col-sm-9">
@@ -36,7 +36,8 @@
                         <td data-th="JenisFood">{{ $details['makanan'] }}</td>
                         <td data-th="harga">{{ $details['harga'] }}</td>
                         <td class="actions" style="font-family: Comic Sans MS, cursive;">
-                            <a class="btn btn-outline-danger btn-sm delete-product"><i class="fa fa-trash-o"></i></a>
+                            <a class="btn btn-outline-danger btn-sm delete-product"><i class="fa fa-trash"
+                                    aria-hidden="true"></i></a>
                         </td>
 
                     </tr>

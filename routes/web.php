@@ -1,14 +1,14 @@
 <?php
 
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\MailController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\GalleryFoodController;
-use Illuminate\Routing\Router;
 
-Route::get('/home', function () {
+
+Route::get('/', function () {
     return view('content.home');
 })->name('home');
     Route::controller(AuthController::class)->group(function(){
@@ -19,6 +19,10 @@ Route::get('/home', function () {
 
     });
 
+    Route::get('/dashboard', function(){
+        return view('dashboard');
+    })->name('dashboard');
+    
 
     Route::controller(ProductController::class)->prefix('product')->group(function(){
         Route::get('', 'index')->name('products');
@@ -27,7 +31,7 @@ Route::get('/home', function () {
         Route::put('edit/{id}', 'update')->name('products.update');
         Route::delete('destroy/{id}', 'ProductController@destroy')->name('products.destroy');
 
-    });
+});
 
 Route::resource('products', ProductController::class);
 
@@ -36,5 +40,7 @@ Route::get('/order/{id}',  [OrderController::class, 'addFoodtoCart'])->name('add
 Route::get('/shopping-cart',[OrderController::class, 'foodcart'])->name('shopping.cart');
 Route::delete('/delete-cart-product', [OrderController::class, 'deleteproduct'])->name('delete.cart.product');
 
-Route::get('/gallery', [GalleryFoodController::class, 'gallery']);
+Route::get('/galleries', [GalleryController::class, 'index'])->name('galleries.index');
+Route::get('/galleries/{id}', [GalleryController::class, 'show'])->name('galleries.show');
 
+Route::get('/profil', [App\Http\Controllers\AuthController::class, 'profil'])->name('profil');
