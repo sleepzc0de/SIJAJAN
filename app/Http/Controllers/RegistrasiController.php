@@ -19,7 +19,7 @@ class RegistrasiController extends Controller
     {
       $data=$request->validate([
         'name' => 'required|max:255',
-        // 'username' => 'required|min:3|max:255|unique:users',
+        'username' => 'required|min:3|max:255|unique:users',
         'email' => 'required|unique:users|email:dns',
         'password' => 'required|min:3|max:255'
         

@@ -1,5 +1,12 @@
 @extends('layouts.main')
 @section('container')
+@if(session()->has('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ session('success') }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+  </button>
+</div>
+@endif
 <div class="row justify-content-center">
     <div class="col-lg-4 mb-5">
         <main class="form-registration">
@@ -17,7 +24,7 @@
                     </div> 
                     @enderror
                 </div>
-            {{-- <div class="form-floating">
+            <div class="form-floating">
                 <input type="text" name="username" class="form-control @error('username')
                     is-invalid @enderror" id="username" placeholder="username" required value="{{old('username')}}">
                 <label for="floatingInput">User Name</label>  
@@ -26,7 +33,7 @@
                     {{ $message }}
                     </div> 
                     @enderror
-            </div>   --}}
+            </div>  
             <div class="form-floating">
                 <input type="email" name="email" class="form-control @error('email')
                     is-invalid @enderror" id="email" placeholder="name@eample.com" required value="{{old('email')}}">

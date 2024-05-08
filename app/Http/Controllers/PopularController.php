@@ -1,27 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Models\Drink;
 
-class DrinkController extends Controller
+use Illuminate\Http\Request;
+
+class popularController extends Controller
 {
     public function index()
     {
-        $title = 'Menu';
+        $title = 'populer';
 
         // dd(drink::all());
-        return view('daftarmenu', [
+        return view('menupopular', [
             'drink' => Drink::all(),
             'title' => $title, // Kirim data minuman ke view
         ]);
     }
+
     public function show($id)
     {
         $title = "Detail Menu";
         $drink = Drink::findOrFail($id);
-        return view('detailmenu', [
+        return view('viewpopular', [
             'drink' => $drink,
             "title" => $title
 

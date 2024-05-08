@@ -1,13 +1,34 @@
 @extends('layouts.main')
 
 @section('container')
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2"> {{ $title }}</h1>
+  <a class="text-decoration-none btn" href="/daftarmenu"><i class="bi bi-backspace-fill"> back</i></a>
+</div>
 <div class="card">
   <div class="card-body">
+    <div class="card bg-dark text-white">
+      @if($drink->image)       
+      <img src="{{ asset('storage/' . $drink->image) }}" alt="{{$drink->category->name }}" class="img-fluid">        
+    @else
+    <img src="https://source.unsplash.com/1000x500?food" alt="Guest" class="card-img-top">            
+    @endif
+      <p class="card-text">Rp{{ $drink->price }}</p>
+    </div>
       <h5 class="card-title">{{ $drink->name }}</h5>
-      <h5 class="card-title">Rp{{ $drink->price }}</h5>
-      <p class="card-text">Category: {{ $drink->category->name }}</p>
+      <p class="card-text">{{ $drink->category->name }}</p>
+      <p class="card-text">{{ $drink->description }}</p>
       <p>{{ $drink->created_at->diffForHumans() }}</p>
+      <a id="orderNowBtn" class="btn" href="/login">Order Now</a>
   </div>
 </div>
-    
+<script>
+  document.getElementById('orderNowBtn').addEventListener('click', function(event) {
+      if (!{{ auth()->check() ? 'true' : 'false' }}) {
+          event.preventDefault(); 
+          alert('Harap login terlebih dahulu');
+          window.location.href = '/login';
+      }
+  });
+  </script>    
 @endsection

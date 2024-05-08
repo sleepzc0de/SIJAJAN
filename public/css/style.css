@@ -1,11 +1,11 @@
-.btn{
+.btn {
   display: inline-block;
-  padding:.8rem 3rem;
-  border:.2rem solid var(--blue-sea); /* Menggunakan variabel baru untuk border */
-  color:var(--blue-sea); /* Menggunakan variabel baru untuk warna teks */
+  padding: 0.8rem 1.5rem; /* Mengurangi padding horizontal */
+  border: none; /* Menghilangkan border */
+  color: var(--blue-sea); /* Menggunakan variabel untuk warna teks */
   cursor: pointer;
   font-size: 1.7rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   position: relative;
   overflow: hidden;
   z-index: 0;
@@ -18,7 +18,7 @@
   top: 0; right: 0;
   width:0%;
   height:100%;
-  background:var(--blue-sea); /* Menggunakan variabel baru untuk warna latar */
+  background:var(--blue-sea); /* Menggunakan variabel untuk warna latar */
   transition: .3s linear;
   z-index: -1;
 }
