@@ -26,8 +26,6 @@ Route::get('/', function () {
 
 Route::get('/daftarmenu', [DrinkController::class, 'index'])->name('drink.index');
 
-// Route::get('/detailmenu', [DrinkController::class, 'index'])->name('drink.show');
-
 Route::get ('/drink/{id}', [DrinkController::class, 'show'])->name('drink.show');
 
 Route::get('/popular', [PopularController::class, 'index'])->name('popular.index');
