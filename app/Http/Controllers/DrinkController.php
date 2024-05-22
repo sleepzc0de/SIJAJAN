@@ -5,16 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Drink;
 
+use function Laravel\Prompts\search;
+
 class DrinkController extends Controller
 {
     public function index()
     {
         $title = 'Menu';
-
-        // dd(drink::all());
-        return view('daftarmenu', [
-            'drink' => Drink::all(),
-            'title' => $title, // Kirim data minuman ke view
+        return view('daftarmenu', [ 
+            'drink' => Drink::latest()-> filter(request((['search', 'category'])))->get(),
+            'title' => $title, 
         ]);
     }
     public function show($id)

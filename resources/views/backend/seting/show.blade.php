@@ -18,8 +18,8 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">
-                        <h5> Ganti Email</h5>
+                    <div class="card-header ">
+                        <h5> Your Email</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">

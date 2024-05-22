@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-primary navbar-dark"> <!-- Mengubah bg-danger menjadi bg-primary untuk warna latar biru laut -->
+<nav class="navbar navbar-expand-lg bg-primary navbar-dark">
   <div class="container">
     <!-- Menambahkan logo (misalnya logo gambar) di sini -->
     <a class="navbar-brand" href="/"><img src="/img/img1.png" alt="Logo" width="30" height="30"> Home</a>
@@ -14,10 +14,7 @@
         </li>       
         <li class="nav-item">
           <a class="nav-link" href="/popular"><i class="bi bi-hand-thumbs-up"> Menu Populer</i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/category"><i class="bi bi-star"> category</i></a>
-        </li>      
+        </li>  
       </ul>      
 
       <ul class="navbar-nav ms-auto">
@@ -27,8 +24,7 @@
             Welcome
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/backend.dashboard">My Dashboard</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="/dashboard">My Dashboard</a></li>
             <li><hr class="dropdown-divider"></li>
             <li>
               <form action="/logout" method="post">
