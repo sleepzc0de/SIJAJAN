@@ -24,7 +24,6 @@ class RegistrasiController extends Controller
         'password' => 'required|min:3|max:255'
         
       ]);
-      // dd('register beerhasil');
 
         $data['password']= Hash::make($data['password']);
 

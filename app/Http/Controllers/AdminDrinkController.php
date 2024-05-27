@@ -15,13 +15,6 @@ class AdminDrinkController extends Controller
      */
     public function index()
     {
-        // if(auth()->guest()){
-        //     abort(403);
-        // }
-
-        // if(auth()->user()->username !== 'hendra'){
-        //     abort(403);
-        // }
         $title = 'Edit';
         return view('admin.drink',[
             'drink' => Drink::all(),  
@@ -55,7 +48,7 @@ class AdminDrinkController extends Controller
             'image' => 'image|file|max:1024',
             'description' => 'required'
         ]);
-// dd('berhasil update');
+        
         if($request->file('image')) {
             $data['image'] = $request->file('image')->store('drink-images');
         }

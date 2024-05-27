@@ -27,9 +27,9 @@
   <td>{{ $loop->iteration }} </td>
   <td>{{ $c->name }}</td>
   <td>
-    <a href="category/{{ $c->id }}/edit" class="badge bg-warning">
+    <a href="category/{{ $c->slug }}/edit" class="badge bg-warning">
     <i class="bi bi-pencil-square"></i></a>
-    <form action="category/{{$c->id}}" method="post" class="d-inline">
+    <form action="category/{{$c->slug}}" method="post" class="d-inline">
       @method('delete')
       @csrf
       <button class="badge bg-danger border-0" onclick="return confirm('Are you sure')">

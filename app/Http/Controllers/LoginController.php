@@ -22,7 +22,7 @@ class LoginController extends Controller
             'email'=> 'required|email:dns',
             'password'=>'required'
         ]);
-        // dd('login berhasil');
+
         if (Auth::attempt($login)) {
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');

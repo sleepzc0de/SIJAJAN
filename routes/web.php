@@ -3,8 +3,6 @@
 use App\Http\Controllers\AdminDrinkController;
 use App\Http\Controllers\AdminCategoryController;
 
-use App\Models\Category;
-use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DrinkController;
 use App\Http\Controllers\PopularController;
@@ -53,4 +51,5 @@ Route::resource('/seting', SetingController::class)->Middleware('auth');
 Route::resource('/admin/drink',AdminDrinkController::class)->except('show');
 
 Route::resource('/admin/category',AdminCategoryController::class)->except('show')->middleware('admin');
+
 

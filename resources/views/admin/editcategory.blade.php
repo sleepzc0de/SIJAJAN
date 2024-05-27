@@ -5,7 +5,7 @@
     <h1 class="h2">Edit category</h1>
   </div>
   <div class="col-lg-8">
-    <form method="post" action="admin/category/{{ $category->id }}" class="mb-5" enctype="multipart/form-data">
+    <form method="post" action="{{ url('admin/category/' . $category->slug) }}" class="mb-5" enctype="multipart/form-data">
       @method('put')
         @csrf
         <div class="mb-4">

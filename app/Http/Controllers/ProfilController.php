@@ -52,6 +52,5 @@ class ProfilController extends Controller
         User::where('id', auth()->user()->id)
             ->update($data);
             return redirect('/profil')->with('success','berhasil mengubah data');
-            // dd('berhasil update');
     }
 }

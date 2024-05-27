@@ -41,7 +41,6 @@ class AdminCategoryController extends Controller
             'slug' => 'required|unique:drinks',
             
         ]);
-// dd('berhasil update');
 
         $data['category_id'] = auth()->user()->id;
 
@@ -62,7 +61,6 @@ class AdminCategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        // dd('ini halaman edit');
         $title = 'Edit';
         return view('admin.editcategory',[
             'title' => $title,
@@ -77,14 +75,11 @@ class AdminCategoryController extends Controller
     {
         $rules = [
             'name' => 'required|max:255',            
-            'slug' => 'required'
+            'slug' => 'required|unique:categories,slug,'.$category->id
         ];
         $data = $request->validate($rules);
 
-        $data['category_id'] = auth()->user()->id;
-
-        Category::where('id', $category->id)
-            ->update($data);
+        $category->update($data);
         return redirect('/admin/category')->with('success', 'New postingan');
     }
 

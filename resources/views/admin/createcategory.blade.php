@@ -7,6 +7,10 @@
   <div class="col-lg-8">
     <form method="post" action="/admin/category" enctype="multipart/form-data">
         @csrf
+        <div class="mb-4">
+          <a href="{{ url('/admin/category') }}" class="btn"><i class="bi bi-arrow-left-square"></i>
+          Back</a>
+        </div>
             <div class="mb-4">
               <label for="title" class="form-label">name</label>
               <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" 

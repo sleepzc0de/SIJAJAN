@@ -43,7 +43,6 @@ class SetingController extends Controller
         User::where('id', auth()->user()->id)
             ->update($data);
             return redirect('/seting')->with('success','berhasil mengubah data');
-            // dd('berhasil update');
     }
     
 }
