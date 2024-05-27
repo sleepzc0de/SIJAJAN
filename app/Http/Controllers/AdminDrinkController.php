@@ -15,7 +15,7 @@ class AdminDrinkController extends Controller
      */
     public function index()
     {
-        $title = 'Edit';
+        $title = 'Edit Menu';
         return view('admin.drink',[
             'drink' => Drink::all(),  
             'title' => $title              
@@ -111,7 +111,7 @@ class AdminDrinkController extends Controller
     // Perbarui data minuman
     $drink->update($data);
 
-    return redirect('/admin/drink')->with('success', 'Menu berhasil diperbarui');
+    return redirect('/admin/drink')->with('success', 'Menu berhasil Di Update');
 }
 
     /**
@@ -120,6 +120,6 @@ class AdminDrinkController extends Controller
     public function destroy(Drink $drink)
     {
         Drink::destroy($drink->id);
-        return redirect('/admin/drink')->with('success', 'menu telah di hapus');
+        return redirect('/admin/drink')->with('danger', 'Menu Berhasil di Hapus');
     }
 }

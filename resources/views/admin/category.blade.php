@@ -6,9 +6,19 @@
 </div>
 
 @if(session()->has('success'))
-<div class="alert alert-success col-lg-9" role="alert">
-{{ session('success') }}
-</div>
+  <div class="alert alert-success alert-dismissible col-lg-9" role="alert">
+    {{ session('success') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    </button>
+  </div>
+@endif
+
+@if(session('danger'))
+  <div class="alert alert-danger alert-dismissible col-lg-9" role="alert">
+    {{ session('danger') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    </button>
+  </div>
 @endif
 
 <div class="table-responsive col-lg-9">

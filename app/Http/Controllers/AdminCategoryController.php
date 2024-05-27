@@ -45,7 +45,7 @@ class AdminCategoryController extends Controller
         $data['category_id'] = auth()->user()->id;
 
         Category::create($data);
-        return redirect('/admin/category')->with('success', 'New postingan');
+        return redirect('/admin/category')->with('success', 'Category Baru Telah Di Tambahkan');
     }
 
     /**
@@ -80,7 +80,7 @@ class AdminCategoryController extends Controller
         $data = $request->validate($rules);
 
         $category->update($data);
-        return redirect('/admin/category')->with('success', 'New postingan');
+        return redirect('/admin/category')->with('success', 'Category Berhasil Di Update ');
     }
 
     /**
@@ -89,6 +89,6 @@ class AdminCategoryController extends Controller
     public function destroy(Category $category)
     {
         Category::destroy($category->id);
-        return redirect('/admin/category')->with('success', 'Postingan telah di Edit');
+        return redirect('/admin/category')->with('danger', 'Category Berhasil Di Hapus');
     }
 }
