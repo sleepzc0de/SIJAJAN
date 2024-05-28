@@ -8,8 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
 {
-    public function checkout(Request $request)
+    
+    function checkout(Request $request)
     {
+        Auth::user();
+
         $cart = session('addcart', []);
         if (empty($cart)) {
             return redirect()->back()->with('error', 'Keranjang belanja Anda kosong.');
@@ -36,7 +39,7 @@ class CheckoutController extends Controller
     }
 
     // Metode untuk menampilkan halaman sukses checkout
-    public function SuccessPage()
+    function SuccessPage()
     {
         return view('checkout.success');
     }
