@@ -63,16 +63,32 @@
             <hr class="sidebar-divider">
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('profil') }}">
+                <a class="nav-link" href="{{ route('payment') }}">
+                    <i class="fas fa-fw fa fa-credit-card"></i>
+                    <span>Payment</span></a>
+            </li>
+
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('reports') }}">
+                    <i class="fas fa-fw  fa-chart-bar"></i>
+                    <span>Report</span></a>
+            </li>
+
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('data') }}">
                     <i class="fas fa-fw  fa-user-astronaut"></i>
-                    <span>Profil</span></a>
+                    <span>Data</span></a>
             </li>
 
             <hr class="sidebar-divider">
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('login') }}">
-                    <i class="fas fa-fw  fa-sign-out"></i>
+                    <i class="fas fa-fw  fa-sign-out-alt"></i>
                     <span>Log Out</span></a>
             </li>
             <!-- Divider -->

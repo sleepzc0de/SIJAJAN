@@ -4,9 +4,12 @@ use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\CheckoutController;
 
 Route::get('/', function () {
     return view('content.home');
@@ -16,6 +19,7 @@ Route::get('/', function () {
         Route::post('register', 'registersave')->name('register.save');
         Route::get('login',   'login')->name('login');
         Route::post('login',  'loginaction')->name('login.action');
+        Route::post('logout', 'logout')->name('logout');
 
     });
 
@@ -23,6 +27,11 @@ Route::get('/', function () {
         return view('dashboard');
     })->name('dashboard');
     
+    Route::get('payment', function(){
+        return view('payment');
+    })->name('payment');
+
+    Route::post('/payment/process', [PaymentController::class, 'process'])->name('payment.process');
 
     Route::controller(ProductController::class)->prefix('product')->group(function(){
         Route::get('', 'index')->name('products');
@@ -39,8 +48,13 @@ Route::get('/order', [OrderController::class, 'order'])->name('order');
 Route::get('/order/{id}',  [OrderController::class, 'addFoodtoCart'])->name('addfood.to.cart');
 Route::get('/shopping-cart',[OrderController::class, 'foodcart'])->name('shopping.cart');
 Route::delete('/delete-cart-product', [OrderController::class, 'deleteproduct'])->name('delete.cart.product');
+Route::post('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
+Route::get('/checkout/success', [CheckoutController::class, 'SuccessPage'])->name('checkout.success');
+
 
 Route::get('/galleries', [GalleryController::class, 'index'])->name('galleries.index');
 Route::get('/galleries/{id}', [GalleryController::class, 'show'])->name('galleries.show');
 
-Route::get('/profil', [App\Http\Controllers\AuthController::class, 'profil'])->name('profil');
+Route::get('/data', [App\Http\Controllers\AuthController::class, 'data'])->name('data');
+
+Route::get('/reports', [ReportController::class, 'index'])->name('reports');

@@ -66,9 +66,17 @@ class AuthController extends Controller
         }
 }
 
-    function profil()
+    function data()
     {
-    return view('profil');
+    return view('data');
     }
 
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('home');
+    }
 }

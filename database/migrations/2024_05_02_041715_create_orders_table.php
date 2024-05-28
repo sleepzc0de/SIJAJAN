@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string("name", 255)->nullable();
             $table->string("makanan", 255)->nullable();
-            $table->string("image", 255)->nullable();      
+            $table->string("image", 255)->nullable(); 
+            $table->decimal('harga', 10, 2); 
             $table->timestamps();
         });
     }

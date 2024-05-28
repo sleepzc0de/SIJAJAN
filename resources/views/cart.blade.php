@@ -8,7 +8,6 @@
 
 @section('content')
 
-
     <table id="cart" class="table table-bordered">
         <thead>
             <tr>
@@ -25,8 +24,7 @@
                     <tr rowId="{{ $id }}">
                         <td data-th="Product">
                             <div class="row">
-                                <div class="col-sm-3 hidden-xs"><img src="{{ asset('image') }}/{{ $details['images'] }}"
-                                        class="card-img-top">
+                                <div class="col-sm-3 hidden-xs"><img src="{{ $details['images'] }}" class="card-img-top">
                                 </div>
                                 <div class="col-sm-9">
                                     <h4 class="nomargin">{{ $details['name'] }}</h4>
@@ -34,12 +32,11 @@
                             </div>
                         </td>
                         <td data-th="JenisFood">{{ $details['makanan'] }}</td>
-                        <td data-th="harga">{{ $details['harga'] }}</td>
+                        <td data-th="harga">{{ str_replace('Rp', '', $details['harga']) }}</td>
                         <td class="actions" style="font-family: Comic Sans MS, cursive;">
                             <a class="btn btn-outline-danger btn-sm delete-product"><i class="fa fa-trash"
                                     aria-hidden="true"></i></a>
                         </td>
-
                     </tr>
                 @endforeach
             @endif
@@ -49,7 +46,10 @@
                 <td colspan="5" class="text-right">
                     <a href="{{ url('/order') }}" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue
                         Shopping</a>
-                    <button class="btn btn-primary">Checkout</button>
+                    <form action="{{ route('checkout') }}" method="POST" style="display: inline;">
+                        @csrf
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-angle-right"></i> Checkout</button>
+                    </form>
                 </td>
             </tr>
         </tfoot>
@@ -65,7 +65,7 @@
 
                 if (confirm("Do you really want to delete?")) {
                     $.ajax({
-                        url: '{{ route('delete.cart.product') }}', // Mengubah href menjadi url
+                        url: '{{ route('delete.cart.product') }}',
                         method: "DELETE",
                         data: {
                             _token: '{{ csrf_token() }}',
